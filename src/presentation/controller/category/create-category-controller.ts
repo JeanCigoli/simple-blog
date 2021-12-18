@@ -19,7 +19,9 @@ export class CreateCategoryController implements Controller {
     } catch (error: any) {
       switch (error.message) {
         case 'CATEGORY_EXIST':
-          conflict('Ops, já possui uma categoria cadastrada com esse nome');
+          return conflict(
+            'Ops, já possui uma categoria cadastrada com esse nome',
+          );
         default:
           return serverError(error);
       }
