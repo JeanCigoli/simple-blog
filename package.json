@@ -5,5 +5,8 @@
   "main": "index.js",
   "repository": "https://github.com/JeanCigoli/simple-blog.git",
   "author": "Jean Cigoli",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "git-commit-msg-linter": "^3.2.8"
+  }
 }
