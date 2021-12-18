@@ -9,5 +9,5 @@ export interface CreateCategoryRepository {
 export namespace CreateCategoryRepository {
   export type Params = Omit<Category, 'categoryId'>;
 
-  export type Result = Promise<Category>;
+  export type Result = Promise<number[]>;
 }

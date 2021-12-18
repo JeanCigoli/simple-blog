@@ -21,15 +21,12 @@ export class DbCreateCategory implements CreateCategory {
       throw new Error('CATEGORY_EXIST');
     }
 
-    const category = await this.createCategoryRepository.create({
+    await this.createCategoryRepository.create({
       createdAt: new Date(),
       name: params.name,
       externalId: this.generateUuid(),
     });
 
-    return {
-      id: category.externalId,
-      name: category.name,
-    };
+    return;
   }
 }

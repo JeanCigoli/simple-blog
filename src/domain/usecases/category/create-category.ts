@@ -1,4 +1,3 @@
-import { CategoryDTO } from '@/domain/dto';
 import { Category } from '@/domain/models';
 
 export interface CreateCategory {
@@ -8,5 +7,5 @@ export interface CreateCategory {
 export namespace CreateCategory {
   export type Params = Pick<Category, 'name'>;
 
-  export type Result = Promise<CategoryDTO>;
+  export type Result = Promise<void>;
 }

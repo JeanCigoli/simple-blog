@@ -13,9 +13,9 @@ export class CreateCategoryController implements Controller {
     try {
       const { name } = httpRequest.body;
 
-      const category = await this.createCategory.create({ name });
+      await this.createCategory.create({ name });
 
-      return created('Categoria criada com sucesso!', category);
+      return created('Categoria criada com sucesso!', {});
     } catch (error: any) {
       switch (error.message) {
         case 'CATEGORY_EXIST':
