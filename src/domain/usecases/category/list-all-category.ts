@@ -1,8 +1,8 @@
-export interface ListAllCategory {
-  listAll: () => ListAllCategory.Result;
+export interface ListAllCategories {
+  listAll: () => ListAllCategories.Result;
 }
 
-export namespace ListAllCategory {
+export namespace ListAllCategories {
   export type Result = Promise<
     {
       id: string;

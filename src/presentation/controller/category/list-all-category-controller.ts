@@ -1,4 +1,4 @@
-import { ListAllCategory } from '@/domain/usecases';
+import { ListAllCategories } from '@/domain/usecases';
 import {
   Controller,
   HttpRequest,
@@ -7,11 +7,11 @@ import {
 import { ok, serverError } from '@/utils/response';
 
 export class ListAllCategoriesController implements Controller {
-  constructor(private readonly listAllCategory: ListAllCategory) {}
+  constructor(private readonly ListAllCategories: ListAllCategories) {}
 
   async handle(_: HttpRequest): Promise<HttpResponse> {
     try {
-      const categories = await this.listAllCategory.listAll();
+      const categories = await this.ListAllCategories.listAll();
 
       return ok('Listagem de categorias', categories);
     } catch (error: any) {

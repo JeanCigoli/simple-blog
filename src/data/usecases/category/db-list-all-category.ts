@@ -1,13 +1,13 @@
-import { ListAllCategoryRepository } from '@/data/protocols/db';
-import { ListAllCategory } from '@/domain/usecases';
+import { ListAllCategoriesRepository } from '@/data/protocols/db';
+import { ListAllCategories } from '@/domain/usecases';
 
-export class DbListAllCategory implements ListAllCategory {
+export class DbListAllCategories implements ListAllCategories {
   constructor(
-    private readonly listAllCategoryRepository: ListAllCategoryRepository,
+    private readonly ListAllCategoriesRepository: ListAllCategoriesRepository,
   ) {}
 
-  async listAll(): ListAllCategory.Result {
-    const categories = await this.listAllCategoryRepository.findAll();
+  async listAll(): ListAllCategories.Result {
+    const categories = await this.ListAllCategoriesRepository.findAll();
 
     return categories.map((value) => ({
       id: value.externalId,

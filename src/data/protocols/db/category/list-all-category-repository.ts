@@ -1,9 +1,9 @@
 import { Category } from '@/domain/models';
 
-export interface ListAllCategoryRepository {
-  findAll: () => ListAllCategoryRepository.Result;
+export interface ListAllCategoriesRepository {
+  findAll: () => ListAllCategoriesRepository.Result;
 }
 
-export namespace ListAllCategoryRepository {
+export namespace ListAllCategoriesRepository {
   export type Result = Promise<Category[]>;
 }
