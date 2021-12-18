@@ -967,6 +967,11 @@
     "@babel/helper-validator-identifier" "^7.15.7"
     to-fast-properties "^2.0.0"
 
+"@badass-team-code/formatted-cases-words@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@badass-team-code/formatted-cases-words/-/formatted-cases-words-1.0.0.tgz#c9439e2a0fb51f1bb12839c70bdc4b245da8bc1e"
+  integrity sha512-Sd1Kb1ZOcRSTaVTbnfeFveOtkrj5MHNzcjLI5nFJOXsZcyIS+thldcloz0F/Ra2EtFCJ2xzworDZuWG8OcqpFA==
+
 "@eslint/eslintrc@^1.0.5":
   version "1.0.5"
   resolved "https://registry.npmjs.org/@eslint/eslintrc/-/eslintrc-1.0.5.tgz"
