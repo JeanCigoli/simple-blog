@@ -34,8 +34,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `blog`.`tb_category`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`tb_category` (
-  `id_category` INT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `blog`.`tb_category` (
+  `id_category` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(50) NOT NULL,
   `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `external_id` VARCHAR(36) NOT NULL,
@@ -47,7 +47,7 @@ ENGINE = InnoDB;
 -- Table `blog`.`tb_rel_blog_category`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `blog`.`tb_rel_blog_category` (
-  `id_rel_blog_category` INT NULL AUTO_INCREMENT,
+  `id_rel_blog_category` INT NOT NULL AUTO_INCREMENT,
   `id_blog` INT NOT NULL,
   `id_category` INT NOT NULL,
   PRIMARY KEY (`id_rel_blog_category`),
@@ -70,7 +70,7 @@ ENGINE = InnoDB;
 -- Table `blog`.`tb_section`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `blog`.`tb_section` (
-  `id_section` INT NOT NULL,
+  `id_section` INT NOT NULL AUTO_INCREMENT,
   `id_blog` INT NOT NULL,
   `title` VARCHAR(70) NULL,
   `text` TEXT NOT NULL,
