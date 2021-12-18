@@ -1,7 +1,7 @@
 import { Category } from '@/domain/models';
 
 export interface ListOneCategoryByNameRepository {
-  findByName(name: string): ListOneCategoryByNameRepository.Result;
+  findByName: (name: string) => ListOneCategoryByNameRepository.Result;
 }
 
 export namespace ListOneCategoryByNameRepository {
