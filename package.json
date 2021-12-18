@@ -1,0 +1,9 @@
+{
+  "name": "blog-api",
+  "version": "1.0.0",
+  "description": "API simple blog",
+  "main": "index.js",
+  "repository": "https://github.com/JeanCigoli/simple-blog.git",
+  "author": "Jean Cigoli",
+  "license": "MIT"
+}
