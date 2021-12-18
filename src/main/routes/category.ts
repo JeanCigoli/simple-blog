@@ -1,9 +1,7 @@
 import { Router } from 'express';
+import { adaptRoute } from '../adapters/adapt-route';
+import { makeListAllCategories } from '../factories/controller';
 
 export default (routes: Router) => {
-  routes.get('/', (_, res) => {
-    return res.json({
-      message: 'API blog is on!',
-    });
-  });
+  routes.get('/categories', adaptRoute(makeListAllCategories()));
 };
