@@ -77,6 +77,7 @@ CREATE TABLE IF NOT EXISTS `blog`.`tb_section` (
   `title` VARCHAR(70) NULL,
   `text` TEXT NOT NULL,
   `image` VARCHAR(200) NULL,
+  `external_id` VARCHAR(36) NOT NULL,
   PRIMARY KEY (`section_id`),
   INDEX `fk_tb_section_tb_blog1_idx` (`blog_id` ASC) VISIBLE,
   CONSTRAINT `fk_tb_section_tb_blog1`
