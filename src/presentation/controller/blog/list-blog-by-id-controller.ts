@@ -11,7 +11,7 @@ export class ListBlogByIdController implements Controller {
 
   async handle(httpRequest: HttpRequest): Promise<HttpResponse> {
     try {
-      const blogs = await this.listBlogById.listById(httpRequest.query);
+      const blogs = await this.listBlogById.listById(httpRequest.params);
 
       return ok('Listagem detalhada da publicação', blogs);
     } catch (error: any) {

@@ -3,3 +3,4 @@ export * from './category/db-create-category';
 
 export * from './blog/db-create-blog';
 export * from './blog/db-list-all-blog';
+export * from './blog/db-list-blog-by-id';

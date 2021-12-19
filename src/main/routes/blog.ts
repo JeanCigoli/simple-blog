@@ -1,8 +1,16 @@
-import { createBlogSchema, listAllBlogsSchema } from '@/validator/usecases';
+import {
+  createBlogSchema,
+  listAllBlogsSchema,
+  listBlogByIdSchema,
+} from '@/validator/usecases';
 import { Router } from 'express';
 import { adaptRoute } from '../adapters/adapt-route';
 import { adaptValidator } from '../adapters/adapt-validator';
-import { makeCreateBlog, makeListAllBlogs } from '../factories/controller';
+import {
+  makeCreateBlog,
+  makeListAllBlogs,
+  makeListBlogById,
+} from '../factories/controller';
 
 export default (routes: Router) => {
   routes.post(
@@ -15,5 +23,11 @@ export default (routes: Router) => {
     '/blogs',
     adaptValidator(listAllBlogsSchema),
     adaptRoute(makeListAllBlogs()),
+  );
+
+  routes.get(
+    '/blogs/:id',
+    adaptValidator(listBlogByIdSchema),
+    adaptRoute(makeListBlogById()),
   );
 };
