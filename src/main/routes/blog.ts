@@ -10,6 +10,7 @@ import {
   makeCreateBlog,
   makeListAllBlogs,
   makeListBlogById,
+  makeUpdateBlog,
 } from '../factories/controller';
 
 export default (routes: Router) => {
@@ -29,5 +30,11 @@ export default (routes: Router) => {
     '/blogs/:id',
     adaptValidator(listBlogByIdSchema),
     adaptRoute(makeListBlogById()),
+  );
+
+  routes.put(
+    '/blogs/:id',
+    // adaptValidator(listBlogByIdSchema),
+    adaptRoute(makeUpdateBlog()),
   );
 };
