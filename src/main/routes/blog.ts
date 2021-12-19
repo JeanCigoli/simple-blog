@@ -4,6 +4,7 @@ import {
   listAllBlogsSchema,
   listBlogByIdSchema,
   updateBlogSchema,
+  updateSectionSchema,
 } from '@/validator/usecases';
 import { Router } from 'express';
 import { adaptRoute } from '../adapters/adapt-route';
@@ -14,6 +15,7 @@ import {
   makeListAllBlogs,
   makeListBlogById,
   makeUpdateBlog,
+  makeUpdateSection,
 } from '../factories/controller';
 
 export default (routes: Router) => {
@@ -45,5 +47,11 @@ export default (routes: Router) => {
     '/blogs/:id',
     adaptValidator(deleteBlogSchema),
     adaptRoute(makeDeleteBlog()),
+  );
+
+  routes.put(
+    '/blogs/:blog_id/sections/:section_id',
+    adaptValidator(updateSectionSchema),
+    adaptRoute(makeUpdateSection()),
   );
 };
