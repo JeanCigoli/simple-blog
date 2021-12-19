@@ -1,6 +1,7 @@
 import {
   CreateCategoryRepository,
   ListAllCategoriesRepository,
+  ListNamesCategoriesByBlogRepository,
   ListOneCategoryByExternalIdRepository,
   ListOneCategoryByNameRepository,
 } from '@/data/protocols/db';
@@ -15,8 +16,20 @@ export class CategoryRepository
     ListAllCategoriesRepository,
     ListOneCategoryByNameRepository,
     CreateCategoryRepository,
-    ListOneCategoryByExternalIdRepository
+    ListOneCategoryByExternalIdRepository,
+    ListNamesCategoriesByBlogRepository
 {
+  findNamesByBlog(id: number): ListNamesCategoriesByBlogRepository.Result {
+    return dbBlog('blog.tb_category as category')
+      .innerJoin(
+        'blog.tb_rel_blog_category as rel',
+        'rel.category_id',
+        'category.category_id',
+      )
+      .select('category.name')
+      .where('rel.blog_id', id);
+  }
+
   create(
     params: CreateCategoryRepository.Params,
   ): CreateCategoryRepository.Result {

@@ -15,7 +15,7 @@ export namespace ListAllBlogs {
     result: BlogDTO[];
     pagination: {
       page: number;
-      lastPage: number;
+      quantityPage: number;
       total: number;
     };
   }>;
