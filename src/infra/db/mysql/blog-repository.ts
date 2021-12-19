@@ -1,11 +1,13 @@
 import {
   CountAllBlogRepository,
   CreateBlogRepository,
+  DeleteRelBlogCategoryRepository,
   ListAllBlogRepository,
   ListOneBlogByExternalIdRepository,
   ListOneBlogByTitleRepository,
   RelBlogAndCategoryRepository,
 } from '@/data/protocols/db';
+import { UpdateBlogRepository } from '@/data/protocols/db/blog/update-blog-repository';
 import {
   formateCamelCaseKeysForSnakeCase,
   formateSnakeCaseKeysForCamelCase,
@@ -19,14 +21,29 @@ export class BlogRepository
     RelBlogAndCategoryRepository,
     ListAllBlogRepository,
     CountAllBlogRepository,
-    ListOneBlogByExternalIdRepository
+    ListOneBlogByExternalIdRepository,
+    DeleteRelBlogCategoryRepository,
+    UpdateBlogRepository
 {
+  deleteRelByBlog(id: number): DeleteRelBlogCategoryRepository.Result {
+    return dbBlog('blog.tb_rel_blog_category').where('blog_id', id).delete();
+  }
+
   async count(): CountAllBlogRepository.Result {
     const [result] = await dbBlog('blog.tb_blog')
       .count('*', { as: 'total' })
       .whereNull('deleted_at');
 
     return result;
+  }
+
+  update(
+    params: UpdateBlogRepository.Params,
+    id: number,
+  ): UpdateBlogRepository.Result {
+    return dbBlog('blog.tb_blog')
+      .update(formateCamelCaseKeysForSnakeCase(params))
+      .where('blog_id', id);
   }
 
   async findAll(
