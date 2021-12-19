@@ -4,4 +4,5 @@ export type Section = {
   title?: string;
   text: string;
   image?: string;
+  externalId: string;
 };

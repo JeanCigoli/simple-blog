@@ -58,7 +58,11 @@ export class DbCreateBlog implements CreateBlog {
     );
 
     await this.createSectionRepository.create(
-      params.sections.map((section) => ({ ...section, blogId })),
+      params.sections.map((section) => ({
+        ...section,
+        blogId,
+        externalId: this.generateUuid(),
+      })),
     );
 
     return;

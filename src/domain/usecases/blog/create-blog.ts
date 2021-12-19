@@ -10,7 +10,7 @@ export namespace CreateBlog {
     'title' | 'shortDescription' | 'author' | 'authorPhoto'
   > & {
     categories: string[];
-    sections: Omit<Section, 'sectionId' | 'blogId'>[];
+    sections: Omit<Section, 'sectionId' | 'blogId' | 'externalId'>[];
   };
 
   export type Result = Promise<void>;
