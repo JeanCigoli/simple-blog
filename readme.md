@@ -15,6 +15,10 @@ Para facilitar o entendimento foi criado uma documentação:
 
 ## O que foi utilizado?
 
+### Deploy
+
+O banco de dados está no **RDS** da AWS, e a API está no **EC2** rodando através do **docker**.
+
 ### Princípios
 
 - Single Responsibility Principle (SRP)
