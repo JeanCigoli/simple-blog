@@ -1,6 +1,7 @@
 import {
   CreateCategoryRepository,
   ListAllCategoriesRepository,
+  ListOneCategoryByExternalIdRepository,
   ListOneCategoryByNameRepository,
 } from '@/data/protocols/db';
 import {
@@ -13,7 +14,8 @@ export class CategoryRepository
   implements
     ListAllCategoriesRepository,
     ListOneCategoryByNameRepository,
-    CreateCategoryRepository
+    CreateCategoryRepository,
+    ListOneCategoryByExternalIdRepository
 {
   create(
     params: CreateCategoryRepository.Params,
@@ -21,6 +23,17 @@ export class CategoryRepository
     return dbBlog('blog.tb_category').insert(
       formateCamelCaseKeysForSnakeCase(params),
     );
+  }
+
+  async findByExternalId(
+    id: string,
+  ): ListOneCategoryByExternalIdRepository.Result {
+    const category = await dbBlog('blog.tb_category')
+      .select('*')
+      .where('external_id', id)
+      .first();
+
+    return formateSnakeCaseKeysForCamelCase(category);
   }
 
   async findByName(name: string): ListOneCategoryByNameRepository.Result {
