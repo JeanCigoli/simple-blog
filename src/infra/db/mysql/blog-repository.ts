@@ -2,6 +2,7 @@ import {
   CountAllBlogRepository,
   CreateBlogRepository,
   ListAllBlogRepository,
+  ListOneBlogByExternalIdRepository,
   ListOneBlogByTitleRepository,
   RelBlogAndCategoryRepository,
 } from '@/data/protocols/db';
@@ -17,7 +18,8 @@ export class BlogRepository
     ListOneBlogByTitleRepository,
     RelBlogAndCategoryRepository,
     ListAllBlogRepository,
-    CountAllBlogRepository
+    CountAllBlogRepository,
+    ListOneBlogByExternalIdRepository
 {
   async count(): CountAllBlogRepository.Result {
     const [result] = await dbBlog('blog.tb_blog')
@@ -35,6 +37,16 @@ export class BlogRepository
       .whereNull('deleted_at')
       .offset(params.offset)
       .limit(params.limit);
+
+    return formateSnakeCaseKeysForCamelCase(blog);
+  }
+
+  async findByExternalId(id: string): ListOneBlogByExternalIdRepository.Result {
+    const blog = await dbBlog('blog.tb_blog')
+      .select('*')
+      .whereNull('deleted_at')
+      .andWhere('external_id', id)
+      .first();
 
     return formateSnakeCaseKeysForCamelCase(blog);
   }
