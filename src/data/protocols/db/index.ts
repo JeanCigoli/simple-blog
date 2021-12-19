@@ -15,3 +15,5 @@ export * from './blog/rel-blog-and-category-repository';
 
 export * from './section/create-section-repository';
 export * from './section/list-all-by-blog-repository';
+export * from './section/list-one-by-external-id-repository';
+export * from './section/update-section-repository';

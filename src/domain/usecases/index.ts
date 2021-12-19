@@ -6,3 +6,4 @@ export * from './blog/list-all-blogs';
 export * from './blog/list-blog-by-id';
 export * from './blog/update-blog';
 export * from './blog/delete-blog';
+export * from './blog/update-section';
