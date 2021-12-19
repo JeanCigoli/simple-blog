@@ -6,5 +6,6 @@ export * from './category/list-one-by-external-id-repository';
 export * from './blog/create-blog-repository';
 export * from './blog/list-one-by-title-repository';
 export * from './blog/rel-blog-and-category-repository';
+export * from './blog/list-all-blogs-repository';
 
 export * from './section/create-section-repository';
