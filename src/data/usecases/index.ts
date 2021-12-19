@@ -5,3 +5,4 @@ export * from './blog/db-create-blog';
 export * from './blog/db-list-all-blog';
 export * from './blog/db-list-blog-by-id';
 export * from './blog/db-update-blog';
+export * from './blog/db-delete-blog';
