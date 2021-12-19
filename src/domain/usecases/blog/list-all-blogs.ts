@@ -8,7 +8,6 @@ export namespace ListAllBlogs {
   export type Params = {
     page: number;
     limit: number;
-    category?: string;
   };
 
   export type Result = Promise<{

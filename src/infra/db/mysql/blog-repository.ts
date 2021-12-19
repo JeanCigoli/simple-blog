@@ -19,24 +19,10 @@ export class BlogRepository
     ListAllBlogRepository,
     CountAllBlogRepository
 {
-  async count(
-    params: CountAllBlogRepository.Params,
-  ): CountAllBlogRepository.Result {
-    const [result] = await dbBlog('blog.tb_blog as blog')
-      .innerJoin(
-        'blog.tb_rel_blog_category as rel',
-        'blog.blog_id',
-        'rel.blog_id',
-      )
-      .innerJoin(
-        'blog.tb_category as category',
-        'category.category_id',
-        'rel.category_id',
-      )
-      .distinct('blog.blog_id')
-      .count('blog.blog_id', { as: 'total' })
-      .whereNull('deleted_at')
-      .andWhere('category.external_id', params.category);
+  async count(): CountAllBlogRepository.Result {
+    const [result] = await dbBlog('blog.tb_blog')
+      .count('*', { as: 'total' })
+      .whereNull('deleted_at');
 
     return result;
   }
@@ -44,21 +30,9 @@ export class BlogRepository
   async findAll(
     params: ListAllBlogRepository.Params,
   ): ListAllBlogRepository.Result {
-    const blog = await dbBlog('blog.tb_blog as blog')
-      .innerJoin(
-        'blog.tb_rel_blog_category as rel',
-        'blog.blog_id',
-        'rel.blog_id',
-      )
-      .innerJoin(
-        'blog.tb_category as category',
-        'category.category_id',
-        'rel.category_id',
-      )
-      .distinct('blog.blog_id')
-      .select('blog.*')
+    const blog = await dbBlog('blog.tb_blog')
+      .select('*')
       .whereNull('deleted_at')
-      .andWhere('category.external_id', params.category)
       .offset(params.offset)
       .limit(params.limit);
 

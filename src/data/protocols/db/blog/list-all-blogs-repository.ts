@@ -10,7 +10,6 @@ export namespace ListAllBlogRepository {
   export type Params = {
     offset: number;
     limit: number;
-    category?: string;
   };
 
   export type Result = Promise<Blog[]>;
