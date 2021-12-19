@@ -2,6 +2,7 @@ import {
   CountAllBlogRepository,
   ListAllBlogRepository,
   ListNamesCategoriesByBlogRepository,
+  ListOneCategoryByExternalIdRepository,
 } from '@/data/protocols/db';
 import { ListAllBlogs } from '@/domain/usecases';
 
@@ -10,6 +11,7 @@ export class DbListAllBlog implements ListAllBlogs {
     private readonly countAllBlogRepository: CountAllBlogRepository,
     private readonly listAllBlogRepository: ListAllBlogRepository,
     private readonly listNamesCategoriesByBlogRepository: ListNamesCategoriesByBlogRepository,
+    private readonly listOneCategoryByExternalIdRepository: ListOneCategoryByExternalIdRepository,
   ) {}
 
   async listAll(params: ListAllBlogs.Params): ListAllBlogs.Result {
@@ -21,6 +23,17 @@ export class DbListAllBlog implements ListAllBlogs {
       limit,
       category: params.category || '',
     };
+
+    if (params.category) {
+      const category =
+        await this.listOneCategoryByExternalIdRepository.findByExternalId(
+          params.category,
+        );
+
+      if (!category) {
+        throw new Error('CATEGORY_NOT_FOUND');
+      }
+    }
 
     const count = await this.countAllBlogRepository.count({
       category: query.category,

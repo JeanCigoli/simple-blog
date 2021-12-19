@@ -4,7 +4,7 @@ import {
   HttpRequest,
   HttpResponse,
 } from '@/presentation/protocols';
-import { ok, serverError } from '@/utils/response';
+import { notFound, ok, serverError } from '@/utils/response';
 
 export class ListAllBlogsController implements Controller {
   constructor(private readonly listAllBlogs: ListAllBlogs) {}
@@ -16,6 +16,8 @@ export class ListAllBlogsController implements Controller {
       return ok('Listagem de todas as publicações', blogs);
     } catch (error: any) {
       switch (error.message) {
+        case 'CATEGORY_NOT_FOUND':
+          return notFound('A categoria informada não foi encontrada');
         default:
           return serverError(error);
       }

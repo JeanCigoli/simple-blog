@@ -10,6 +10,7 @@ export const makeListAllBlogs = () => {
     blogRepository,
     blogRepository,
     categoryRepository,
+    categoryRepository,
   );
 
   return new ListAllBlogsController(dbListAllBlog);
