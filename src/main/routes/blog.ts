@@ -2,6 +2,7 @@ import {
   createBlogSchema,
   listAllBlogsSchema,
   listBlogByIdSchema,
+  updateBlogSchema,
 } from '@/validator/usecases';
 import { Router } from 'express';
 import { adaptRoute } from '../adapters/adapt-route';
@@ -34,7 +35,7 @@ export default (routes: Router) => {
 
   routes.put(
     '/blogs/:id',
-    // adaptValidator(listBlogByIdSchema),
+    adaptValidator(updateBlogSchema),
     adaptRoute(makeUpdateBlog()),
   );
 };
