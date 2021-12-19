@@ -2,6 +2,7 @@ import * as yup from 'yup';
 import { link, string, uuid } from '..';
 
 const updateBlogSchema = yup.object().shape({
+  id: uuid('O id informado é inválido').required('O id é obrigatório'),
   title: string('O título')
     .max(50, 'O título não pode ter mais de 50 caracteres')
     .required('O título é obrigatória'),

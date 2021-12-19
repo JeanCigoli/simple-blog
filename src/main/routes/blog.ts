@@ -1,5 +1,6 @@
 import {
   createBlogSchema,
+  deleteBlogSchema,
   listAllBlogsSchema,
   listBlogByIdSchema,
   updateBlogSchema,
@@ -9,6 +10,7 @@ import { adaptRoute } from '../adapters/adapt-route';
 import { adaptValidator } from '../adapters/adapt-validator';
 import {
   makeCreateBlog,
+  makeDeleteBlog,
   makeListAllBlogs,
   makeListBlogById,
   makeUpdateBlog,
@@ -37,5 +39,11 @@ export default (routes: Router) => {
     '/blogs/:id',
     adaptValidator(updateBlogSchema),
     adaptRoute(makeUpdateBlog()),
+  );
+
+  routes.delete(
+    '/blogs/:id',
+    adaptValidator(deleteBlogSchema),
+    adaptRoute(makeDeleteBlog()),
   );
 };
