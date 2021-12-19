@@ -54,5 +54,18 @@
     "tsconfig-paths": "^3.12.0",
     "uuid": "^8.3.2",
     "yup": "^0.32.11"
+  },
+  "buildDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.0",
+    "@babel/node": "^7.16.0",
+    "@babel/plugin-proposal-decorators": "^7.16.4",
+    "@babel/preset-env": "^7.16.4",
+    "@babel/preset-typescript": "^7.16.0",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "babel-plugin-transform-typescript-metadata": "^0.3.2",
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "^4.4.4",
+    "rimraf": "^3.0.2"
   }
 }
