@@ -43,6 +43,7 @@ O banco de dados está no **RDS** da AWS, e a API está no **EC2** rodando atrav
 
 - NPM and YARN
 - Typescript
+- Docker
 - Git
 - Express
 - Yup
@@ -58,3 +59,4 @@ O banco de dados está no **RDS** da AWS, e a API está no **EC2** rodando atrav
 - API Rest com Express
 - CORS
 - Middlewares
+- Deploy no EC2 com Docker
