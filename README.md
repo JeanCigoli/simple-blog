@@ -11,7 +11,7 @@ Essa API faz parte de um desafio onde era preciso criar as seguintes etapas:
 
 Para facilitar o entendimento foi criado uma documentação:
 
-> https://blog-docs.vercel.app
+> https://simple-blog-docs.vercel.app/
 
 ## O que foi utilizado?
 
